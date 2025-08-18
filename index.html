@@ -3,21 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Dashboard</title>
+    <title>Shvydak Dashboard</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <h1>My Services</h1>
-        <ul class="service-list">
-            <li><a href="http://photos.shvydak.com" target="_blank">Immich Photos</a></li>
-            <li><a href="http://portainer.shvydak.com" target="_blank">Portainer</a></li>
-            <li><a href="http://n8n.shvydak.com" target="_blank">n8n</a></li>
-            <li><a href="http://homeassistant.local:8123" target="_blank">Home Assistant</a></li>
-            <li><a href="http://pi.hole/admin" target="_blank">Pi-hole</a></li>
-            <li><a href="#">Plex</a></li>
-            <li><a href="#">Transmission</a></li>
-        </ul>
-    </div>
+    <div class="background-animation"></div>
+    
+    <main class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-server"></i>
+                <h1>Shvydak Dashboard</h1>
+            </div>
+            <p class="subtitle">Manage your services and applications</p>
+        </header>
+
+        <section class="services-grid">
+            <div class="service-card" data-service="photos">
+                <div class="service-icon">
+                    <i class="fas fa-images"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Immich Photos</h3>
+                    <p>Photo hosting and media management</p>
+                </div>
+                <a href="http://photos.shvydak.com" target="_blank" class="service-link">
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+
+            <div class="service-card" data-service="portainer">
+                <div class="service-icon">
+                    <i class="fab fa-docker"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Portainer</h3>
+                    <p>Docker container management</p>
+                </div>
+                <a href="http://portainer.shvydak.com" target="_blank" class="service-link">
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+
+            <div class="service-card" data-service="n8n">
+                <div class="service-icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <div class="service-content">
+                    <h3>n8n</h3>
+                    <p>Workflow automation platform</p>
+                </div>
+                <a href="http://n8n.shvydak.com" target="_blank" class="service-link">
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+
+            <div class="service-card" data-service="homeassistant">
+                <div class="service-icon">
+                    <i class="fas fa-home"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Home Assistant</h3>
+                    <p>Smart home automation</p>
+                </div>
+                <a href="http://homeassistant.local:8123" target="_blank" class="service-link">
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+
+            <div class="service-card" data-service="pihole">
+                <div class="service-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Pi-hole</h3>
+                    <p>Ad blocking and DNS filtering</p>
+                </div>
+                <a href="http://pi.hole/admin" target="_blank" class="service-link">
+                    <i class="fas fa-external-link-alt"></i>
+                </a>
+            </div>
+
+            <div class="service-card" data-service="plex">
+                <div class="service-icon">
+                    <i class="fas fa-play-circle"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Plex</h3>
+                    <p>Media server and streaming</p>
+                </div>
+                <a href="#" class="service-link disabled">
+                    <i class="fas fa-clock"></i>
+                </a>
+            </div>
+
+            <div class="service-card" data-service="transmission">
+                <div class="service-icon">
+                    <i class="fas fa-download"></i>
+                </div>
+                <div class="service-content">
+                    <h3>Transmission</h3>
+                    <p>BitTorrent client</p>
+                </div>
+                <a href="#" class="service-link disabled">
+                    <i class="fas fa-clock"></i>
+                </a>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2024 Shvydak Dashboard. Made with <i class="fas fa-heart"></i></p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
 </body>
 </html>

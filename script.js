@@ -246,49 +246,82 @@ function checkServiceStatus(serviceName) {
 
 // Add search functionality
 function addSearchFunctionality() {
-     const searchInput = document.createElement('input')
-     searchInput.type = 'text'
-     searchInput.placeholder = 'Search services...'
-     searchInput.className = 'search-input'
-     searchInput.style.cssText = `
-        width: 100%;
-        max-width: 400px;
-        padding: 12px 16px;
-        border: 1px solid var(--border);
-        border-radius: 8px;
-        background: var(--surface);
-        color: var(--text-primary);
-        font-size: 1rem;
-        margin-bottom: 2rem;
-        outline: none;
-        transition: all 0.3s ease;
-    `
+     const searchInput = document.querySelector('.search-input')
+     const searchResultsCount = document.querySelector('.search-results-count')
+     const serviceCards = document.querySelectorAll('.service-card')
+
+     if (!searchInput) return
 
      searchInput.addEventListener('input', function (e) {
-          const searchTerm = e.target.value.toLowerCase()
-          const serviceCards = document.querySelectorAll('.service-card')
+          const searchTerm = e.target.value.toLowerCase().trim()
+          let visibleCount = 0
 
           serviceCards.forEach((card) => {
                const title = card.querySelector('h3').textContent.toLowerCase()
                const description = card
                     .querySelector('p')
                     .textContent.toLowerCase()
+               const serviceName = card
+                    .getAttribute('data-service')
+                    .toLowerCase()
 
                if (
                     title.includes(searchTerm) ||
-                    description.includes(searchTerm)
+                    description.includes(searchTerm) ||
+                    serviceName.includes(searchTerm)
                ) {
                     card.style.display = 'block'
                     card.style.animation = 'cardAppear 0.3s ease-out'
+                    visibleCount++
                } else {
                     card.style.display = 'none'
                }
           })
+
+          // Update results count
+          if (searchTerm.length > 0) {
+               searchResultsCount.textContent = `${visibleCount} service${
+                    visibleCount !== 1 ? 's' : ''
+               }`
+               searchResultsCount.classList.add('show')
+          } else {
+               searchResultsCount.classList.remove('show')
+          }
+
+          // Add search highlight effect
+          if (searchTerm.length > 0) {
+               serviceCards.forEach((card) => {
+                    const title = card.querySelector('h3')
+                    const description = card.querySelector('p')
+
+                    if (card.style.display !== 'none') {
+                         title.style.color = 'var(--primary-color)'
+                         setTimeout(() => {
+                              title.style.color = ''
+                         }, 200)
+                    }
+               })
+          }
      })
 
-     // Insert search input after header
-     const header = document.querySelector('.header')
-     header.parentNode.insertBefore(searchInput, header.nextSibling)
+     // Add keyboard shortcuts
+     searchInput.addEventListener('keydown', function (e) {
+          if (e.key === 'Escape') {
+               searchInput.value = ''
+               searchInput.dispatchEvent(new Event('input'))
+               searchInput.blur()
+          }
+     })
+
+     // Add focus effects
+     searchInput.addEventListener('focus', function () {
+          document.querySelector('.search-wrapper').style.transform =
+               'scale(1.02)'
+     })
+
+     searchInput.addEventListener('blur', function () {
+          document.querySelector('.search-wrapper').style.transform = 'scale(1)'
+     })
 }
 
 // Initialize search after a delay

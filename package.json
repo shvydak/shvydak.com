@@ -1,0 +1,45 @@
+{
+  "name": "shvydak-dashboard",
+  "version": "1.0.0",
+  "description": "Shvydak's Dashboard - A modern web application for managing services",
+  "main": "server/index.js",
+  "scripts": {
+    "dev": "concurrently \"yarn run server\" \"yarn run client\"",
+    "server": "nodemon server/index.js",
+    "client": "cd client && yarn start",
+    "build": "cd client && yarn build",
+    "start": "node server/index.js",
+    "install-client": "cd client && yarn install",
+    "install-server": "yarn install",
+    "install-all": "yarn run install-server && yarn run install-client"
+  },
+  "keywords": [
+    "dashboard",
+    "express",
+    "react",
+    "authentication"
+  ],
+  "author": "Shvydak",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "passport": "^0.6.0",
+    "passport-local": "^1.0.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "helmet": "^7.0.0",
+    "express-rate-limit": "^6.7.0",
+    "dotenv": "^16.0.3",
+    "compression": "^1.7.4",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22",
+    "concurrently": "^7.6.0"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
+}

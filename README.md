@@ -3,118 +3,201 @@ description: Project Rules
 alwaysApply: false
 ---
 
-# Shvydak Dashboard Project Rules
+# Shvydak Dashboard
 
-## Project Overview
+Современное веб-приложение для управления сервисами с аутентификацией, построенное на Express.js и React.
 
-This is a modern web dashboard for managing services and applications with beautiful design and interactive elements. The project has been completely modernized with English language support.
+## 🚀 Технологии
 
-## Key Files Structure
+### Backend (Express.js)
 
--    `index.html` - Main HTML file with semantic markup
--    `style.css` - Modern CSS with CSS variables, Grid/Flexbox, animations
--    `script.js` - Interactive JavaScript with ES6+ features
--    `README.md` - Project documentation in English
+-    **Express.js** - веб-фреймворк для Node.js
+-    **Passport.js** - аутентификация
+-    **Express Session** - управление сессиями
+-    **bcryptjs** - хеширование паролей
+-    **Helmet** - безопасность
+-    **CORS** - кросс-доменные запросы
+-    **Morgan** - логирование
+-    **Compression** - сжатие ответов
 
-## Design System
+### Frontend (React)
 
--    **Color Scheme**: Dark theme with gradients (primary: indigo, secondary: pink, accent: blue)
--    **Typography**: Inter font from Google Fonts
--    **Layout**: CSS Grid for responsive card layout
--    **Animations**: Smooth transitions, hover effects, ripple effects, parallax
+-    **React 18** - UI библиотека
+-    **TypeScript** - типизация
+-    **React Router** - маршрутизация
+-    **Axios** - HTTP клиент
+-    **Context API** - управление состоянием
 
-## Technologies Used
+## 📦 Установка и запуск
 
--    HTML5 with semantic markup
--    CSS3 with CSS variables, Grid, Flexbox, animations
--    JavaScript ES6+ with modern features
--    Font Awesome for icons
--    Google Fonts (Inter)
+### Предварительные требования
 
-## Development Server
+-    Node.js 16+
+-    yarn (рекомендуется) или npm
 
--    **Command**: `npx serve . -l 3000`
--    **URL**: http://localhost:3000
+### 1. Клонирование и установка зависимостей
 
-## Services Included
+```bash
+# Установка серверных зависимостей
+yarn install
 
-1. **Immich Photos** - Photo hosting and media management
-2. **Portainer** - Docker container management
-3. **n8n** - Workflow automation platform
-4. **Home Assistant** - Smart home automation
-5. **Pi-hole** - Ad blocking and DNS filtering
-6. **Plex** - Media server and streaming (in development)
-7. **Transmission** - BitTorrent client (in development)
+# Установка клиентских зависимостей
+yarn run install-client
+```
 
-## Key Features Implemented
+### 2. Настройка окружения
 
--    ✅ Modern card-based design with gradients
--    ✅ Responsive layout for all devices
--    ✅ Interactive animations and hover effects
--    ✅ Service search functionality
--    ✅ Keyboard navigation support
--    ✅ Theme toggle (dark/light)
--    ✅ Status indicators for services
--    ✅ Accessibility features
--    ✅ English language support
+Создайте файл `.env` в корневой директории:
 
-## JavaScript Functionality
+```bash
+cp env.example .env
+```
 
--    Card interactions with click animations
--    Search functionality with real-time filtering
--    Keyboard navigation (arrow keys, Enter, Space)
--    Theme toggle with icon changes
--    Parallax background effect
--    Service status indicators
--    Performance monitoring
--    Ripple effects on hover
+Отредактируйте `.env` файл:
 
-## CSS Features
+```env
+# Server Configuration
+PORT=5001
+NODE_ENV=development
 
--    CSS custom properties (variables) for theming
--    CSS Grid for responsive layout
--    Smooth transitions and animations
--    Backdrop blur effects
--    Gradient backgrounds and borders
--    Responsive breakpoints
--    Focus states for accessibility
+# Session Configuration
+SESSION_SECRET=your-super-secret-session-key-change-this-in-production
 
-## Development Guidelines
+# CORS Configuration
+ALLOWED_ORIGINS=http://localhost:3000,https://shvydak.com
 
--    Always use English for all content
--    Maintain semantic HTML structure
--    Use CSS variables for consistent theming
--    Follow modern JavaScript practices (ES6+)
--    Ensure accessibility with proper focus management
--    Test responsive design on multiple screen sizes
--    Keep animations smooth and performant
+# Security
+RATE_LIMIT_WINDOW_MS=900000
+RATE_LIMIT_MAX_REQUESTS=100
+```
 
-## Future Enhancements
+### 3. Запуск приложения
 
--    Real-time service status checking
--    Service downtime notifications
--    Usage statistics
--    Card customization options
--    Configuration export/import
--    PWA functionality
+#### Режим разработки (рекомендуется)
 
-## File Organization
+```bash
+# Запуск сервера и клиента одновременно
+yarn dev
+```
+
+#### Отдельный запуск
+
+```bash
+# Только сервер
+yarn server
+
+# Только клиент (в отдельном терминале)
+yarn client
+```
+
+### 4. Доступ к приложению
+
+-    **Frontend**: http://localhost:3000
+-    **Backend API**: http://localhost:5001/api
+-    **Демо данные**: admin / admin123
+
+## 🔐 Аутентификация
+
+Приложение использует сессионную аутентификацию с Passport.js:
+
+-    **Логин**: `/api/auth/login`
+-    **Логаут**: `/api/auth/logout`
+-    **Проверка статуса**: `/api/auth/me`
+
+### Демо пользователь
+
+-    **Username**: admin
+-    **Password**: admin123
+
+## 📁 Структура проекта
 
 ```
 shvydak.com/
-├── index.html          # Main HTML file
-├── style.css           # All styles and animations
-├── script.js           # Interactive functionality
-├── README.md           # Project documentation
-└── .cursor/rules/      # Cursor IDE rules
+├── server/                 # Express.js сервер
+│   └── index.js           # Основной файл сервера
+├── client/                # React приложение
+│   ├── src/
+│   │   ├── components/    # React компоненты
+│   │   ├── contexts/      # React контексты
+│   │   └── App.tsx        # Главный компонент
+│   └── public/            # Статические файлы
+├── package.json           # Зависимости сервера
+├── yarn.lock              # Lock файл yarn
+├── env.example           # Пример переменных окружения
+└── README.md             # Документация
 ```
 
-## Important Notes
+## 🛠 API Endpoints
 
--    The site is fully responsive and works on all devices
--    All animations are CSS-based for performance
--    JavaScript is modular and well-organized
--    The design follows modern web standards
--    Accessibility is prioritized throughout
--    The project is ready for deployment on any static hosting
-     alwaysApply: false
+### Аутентификация
+
+-    `POST /api/auth/login` - вход в систему
+-    `POST /api/auth/logout` - выход из системы
+-    `GET /api/auth/me` - получение данных пользователя
+
+### Дашборд
+
+-    `GET /api/dashboard` - данные дашборда (защищенный маршрут)
+-    `GET /api/health` - проверка состояния сервера
+
+## 🔒 Безопасность
+
+-    **Helmet** - защита заголовков
+-    **Rate Limiting** - ограничение запросов
+-    **CORS** - настройка кросс-доменных запросов
+-    **Session Security** - безопасные сессии
+-    **bcrypt** - хеширование паролей
+
+## 🎨 Дизайн
+
+Приложение использует современный дизайн с:
+
+-    Темной темой
+-    Градиентами и анимациями
+-    Адаптивным дизайном
+-    Glassmorphism эффектами
+-    Font Awesome иконками
+
+## 🚀 Развертывание
+
+### Production сборка
+
+```bash
+# Сборка React приложения
+yarn build
+
+# Запуск production сервера
+NODE_ENV=production yarn start
+```
+
+### Переменные окружения для production
+
+```env
+NODE_ENV=production
+SESSION_SECRET=your-production-secret-key
+ALLOWED_ORIGINS=https://shvydak.com,https://www.shvydak.com
+```
+
+## 📝 Планы развития
+
+-    [ ] Интеграция с MongoDB
+-    [ ] Интеграция с Redis для кэширования
+-    [ ] Реальное мониторинг сервисов
+-    [ ] Уведомления о статусе сервисов
+-    [ ] Многофакторная аутентификация
+-    [ ] API для управления сервисами
+
+## 🤝 Вклад в проект
+
+1. Форкните репозиторий
+2. Создайте ветку для новой функции
+3. Внесите изменения
+4. Создайте Pull Request
+
+## 📄 Лицензия
+
+MIT License
+
+---
+
+**Создано с ❤️ для изучения современных веб-технологий**

@@ -13,7 +13,7 @@ interface AuthContextType {
   user: User | null;
   loading: boolean;
   login: (username: string, password: string) => Promise<boolean>;
-  register: (username: string, email: string, password: string) => Promise<boolean>;
+  register: (username: string, email: string, password: string, firstName: string, lastName: string) => Promise<boolean>;
   logout: () => Promise<void>;
   checkAuth: () => Promise<void>;
 }
@@ -124,10 +124,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   };
 
-  const register = async (username: string, email: string, password: string): Promise<boolean> => {
+  const register = async (username: string, email: string, password: string, firstName: string, lastName: string): Promise<boolean> => {
     try {
       setLoading(true);
-      const response = await axios.post('/auth/register', { username, email, password });
+      const response = await axios.post('/auth/register', { username, email, password, firstName, lastName });
       
       // Store the token - backend response structure: { success: true, data: { user, token } }
       if (response.data.data?.token) {

@@ -36,7 +36,7 @@ export const loginUser = async (req: Request, res: Response) => {
         if (username) {
             // Try to find user by matching email prefix
             const users = await getAllUsers()
-            user = users.find(u => u.email.split('@')[0] === username)
+            user = users.find((u) => u.email.split('@')[0] === username)
             // If found by username, we need to fetch the user with password included
             if (user) {
                 const User = (await import('@/models/User')).User

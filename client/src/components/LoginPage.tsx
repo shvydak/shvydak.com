@@ -104,7 +104,7 @@ const LoginPage: React.FC = () => {
         </form>
 
         <div className="login-footer">
-          <p>Demo credentials: admin / admin123</p>
+          {/* <p>Demo credentials: admin / admin123</p> */}
           <p>Don't have an account? <Link to="/register" className="link">Sign Up</Link></p>
         </div>
       </div>

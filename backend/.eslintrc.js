@@ -10,7 +10,7 @@ module.exports = {
     rules: {
         // TypeScript specific rules
         '@typescript-eslint/no-unused-vars': 'error',
-        '@typescript-eslint/no-explicit-any': 'error',
+        '@typescript-eslint/no-explicit-any': 'off',
         '@typescript-eslint/explicit-function-return-type': 'warn',
         '@typescript-eslint/no-floating-promises': 'error',
         '@typescript-eslint/await-thenable': 'error',

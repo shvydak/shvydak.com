@@ -33,16 +33,16 @@ alwaysApply: false
 ### Предварительные требования
 
 -    Node.js 16+
--    yarn (рекомендуется) или npm
+-    npm (рекомендуется)
 
 ### 1. Клонирование и установка зависимостей
 
 ```bash
 # Установка серверных зависимостей
-yarn install
+npm install
 
 # Установка клиентских зависимостей
-yarn run install-client
+npm run install-client
 ```
 
 ### 2. Настройка окружения
@@ -61,7 +61,6 @@ PORT=5001
 NODE_ENV=development
 
 # Session Configuration
-SESSION_SECRET=your-super-secret-session-key-change-this-in-production
 
 # CORS Configuration
 ALLOWED_ORIGINS=http://localhost:3000,https://shvydak.com
@@ -77,17 +76,17 @@ RATE_LIMIT_MAX_REQUESTS=100
 
 ```bash
 # Запуск сервера и клиента одновременно
-yarn dev
+npm run dev
 ```
 
 #### Отдельный запуск
 
 ```bash
 # Только сервер
-yarn server
+npm run server
 
 # Только клиент (в отдельном терминале)
-yarn client
+npm run client
 ```
 
 ### 4. Доступ к приложению
@@ -122,7 +121,7 @@ shvydak.com/
 │   │   └── App.tsx        # Главный компонент
 │   └── public/            # Статические файлы
 ├── package.json           # Зависимости сервера
-├── yarn.lock              # Lock файл yarn
+├── package-lock.json      # Lock файл npm
 ├── env.example           # Пример переменных окружения
 └── README.md             # Документация
 ```
@@ -164,17 +163,16 @@ shvydak.com/
 
 ```bash
 # Сборка React приложения
-yarn build
+npm run build
 
 # Запуск production сервера
-NODE_ENV=production yarn start
+NODE_ENV=production npm start
 ```
 
 ### Переменные окружения для production
 
 ```env
 NODE_ENV=production
-SESSION_SECRET=your-production-secret-key
 ALLOWED_ORIGINS=https://shvydak.com,https://www.shvydak.com
 ```
 

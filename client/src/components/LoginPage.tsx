@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import './LoginPage.css';
 
 const LoginPage: React.FC = () => {
@@ -105,6 +105,7 @@ const LoginPage: React.FC = () => {
 
         <div className="login-footer">
           <p>Demo credentials: admin / admin123</p>
+          <p>Don't have an account? <Link to="/register" className="link">Sign Up</Link></p>
         </div>
       </div>
     </div>

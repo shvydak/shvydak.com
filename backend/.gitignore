@@ -1,0 +1,63 @@
+# Build output
+dist/
+build/
+
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# TypeScript build info
+*.tsbuildinfo
+
+# Logs
+logs/
+*.log
+
+# Database files
+*.sqlite
+*.sqlite3
+*.db
+
+# Redis dump
+dump.rdb
+
+# Coverage reports
+coverage/
+.nyc_output/
+
+# Test output
+test-results/
+test-output/
+
+# Temporary files
+tmp/
+temp/
+
+# Generated API documentation
+docs/api/
+
+# Certificate files
+*.pem
+*.key
+*.crt
+*.p12
+*.pfx
+
+# Local uploads
+uploads/
+public/uploads/
+
+# PM2 logs
+.pm2/
+
+# Database backups
+*.backup
+*.bak
+*.sql
+
+# Local config overrides
+config.local.js
+config.local.json

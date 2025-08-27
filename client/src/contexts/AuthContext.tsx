@@ -13,6 +13,7 @@ interface AuthContextType {
   user: User | null;
   loading: boolean;
   login: (username: string, password: string) => Promise<boolean>;
+  register: (username: string, email: string, password: string) => Promise<boolean>;
   logout: () => Promise<void>;
   checkAuth: () => Promise<void>;
 }
@@ -68,6 +69,21 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     }
   };
 
+  const register = async (username: string, email: string, password: string): Promise<boolean> => {
+    try {
+      setLoading(true);
+      const response = await axios.post('/auth/register', { username, email, password });
+      setUser(response.data.user);
+      return true;
+    } catch (error: any) {
+      console.error('Registration error:', error);
+      setUser(null);
+      return false;
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const logout = async (): Promise<void> => {
     try {
       await axios.post('/auth/logout');
@@ -82,6 +98,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     user,
     loading,
     login,
+    register,
     logout,
     checkAuth,
   };

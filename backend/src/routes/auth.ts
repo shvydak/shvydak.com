@@ -2,6 +2,7 @@ import {Router, Response} from 'express'
 import {registerUser, loginUser} from '../controllers/userController'
 import {authenticate} from '@/middleware/auth'
 import {AuthenticatedRequest} from '@/types'
+import {createUserResponse} from '@/utils/typeHelpers'
 
 const router = Router()
 
@@ -15,11 +16,8 @@ router.post('/logout', (_req, res) => {
 
 // Protected auth routes
 router.get('/me', authenticate, (req: AuthenticatedRequest, res: Response) => {
-    // Return current user info
-    res.json({
-        success: true,
-        user: req.user,
-    })
+    // Return current user info with consistent response structure
+    res.json(createUserResponse({user: req.user}, 'User info retrieved successfully'))
 })
 
 export default router

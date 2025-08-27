@@ -117,7 +117,7 @@ class App {
         // Mount route modules - For compatibility with frontend
         this.app.use('/api/auth', authRoutes)
         this.app.use('/api/dashboard', dashboardRoutes)
-        
+
         // Original API v1 routes
         this.app.use('/api/v1/info', infoRoutes)
         this.app.use('/api/v1/users', userRoutes)
@@ -152,7 +152,7 @@ class App {
             // Connect to databases
             console.log('🔄 Connecting to databases...')
             await databaseConnection.connect()
-            
+
             // Try to connect to Redis (optional)
             try {
                 await redisConnection.connect()
@@ -182,13 +182,13 @@ class App {
 
         try {
             await databaseConnection.disconnect()
-            
+
             try {
                 await redisConnection.disconnect()
             } catch (error: any) {
                 console.warn('⚠️ Redis disconnect failed:', error.message)
             }
-            
+
             console.log('✅ Server shutdown complete')
             process.exit(0)
         } catch (error) {
@@ -204,14 +204,14 @@ const app = new App()
 // Handle uncaught exceptions
 process.on('uncaughtException', (error) => {
     console.error('❌ Uncaught Exception:', error)
-    app.shutdown()
+    void app.shutdown()
 })
 
 // Handle unhandled promise rejections
 process.on('unhandledRejection', (reason, promise) => {
     console.error('❌ Unhandled Rejection at:', promise, 'reason:', reason)
-    app.shutdown()
+    void app.shutdown()
 })
 
 // Start the server
-app.start()
+void app.start()

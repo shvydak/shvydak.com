@@ -6,9 +6,9 @@ export interface IUser {
     username?: string
     email: string
     password: string
-    firstName: string
-    lastName: string
-    role: UserRole
+    firstName?: string
+    lastName?: string
+    role: UserRole.USER | UserRole.ADMIN
     isActive: boolean
     createdAt: Date
     updatedAt: Date

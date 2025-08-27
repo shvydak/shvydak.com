@@ -35,7 +35,7 @@ const Dashboard: React.FC = () => {
             // Fallback to static data if API fails
             setDashboardData({
                 message: 'Welcome to the dashboard!',
-                user: user?.username || 'User',
+                user: user?.username || user?.firstName || 'User',
                 services: [
                     {name: 'Immich Photos', status: 'online', url: 'http://photos.shvydak.com'},
                     {name: 'Portainer', status: 'online', url: 'http://portainer.shvydak.com'},
@@ -163,7 +163,7 @@ const Dashboard: React.FC = () => {
                     <p className="subtitle">Manage your services and applications</p>
 
                     <div className="user-info">
-                        <span>Welcome, {user?.username}!</span>
+                        <span>Welcome, {user?.username || user?.firstName}!</span>
                         <button onClick={handleLogout} className="logout-button">
                             <i className="fas fa-sign-out-alt"></i>
                             Logout

@@ -95,7 +95,7 @@ const RegisterPage: React.FC = () => {
                             value={formData.username}
                             onChange={handleChange}
                             placeholder="Enter your username"
-                            required
+                            // required
                             disabled={isLoading}
                         />
                     </div>

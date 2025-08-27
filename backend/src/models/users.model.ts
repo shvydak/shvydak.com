@@ -11,6 +11,13 @@ export interface IUserDocument extends Omit<IUser, '_id'>, Document {
 // User schema definition
 const userSchema = new Schema<IUserDocument>(
     {
+        username: {
+            type: String,
+            required: false,
+            unique: false,
+            lowercase: false,
+            trim: true,
+        },
         email: {
             type: String,
             required: [true, 'Email is required'],
@@ -60,11 +67,6 @@ const userSchema = new Schema<IUserDocument>(
 // Virtual for full name
 userSchema.virtual('fullName').get(function (this: IUserDocument): string {
     return `${this.firstName} ${this.lastName}`
-})
-
-// Virtual for username (backward compatibility with frontend)
-userSchema.virtual('username').get(function (this: IUserDocument): string {
-    return this.email ? this.email.split('@')[0] : 'user' // Use email prefix as username
 })
 
 // Index for better query performance

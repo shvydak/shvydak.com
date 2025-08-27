@@ -82,34 +82,34 @@ export const authorize = (...roles: string[]) => {
  * Optional authentication middleware
  * Similar to authenticate but doesn't throw error if no token provided
  */
-export const optionalAuth = async (
-    req: AuthenticatedRequest,
-    _res: Response,
-    next: NextFunction
-): Promise<void> => {
-    try {
-        const authHeader = (req.headers as any).authorization
+// export const optionalAuth = async (
+//     req: AuthenticatedRequest,
+//     _res: Response,
+//     next: NextFunction
+// ): Promise<void> => {
+//     try {
+//         const authHeader = (req.headers as any).authorization
 
-        if (!authHeader || !authHeader.startsWith('Bearer ')) {
-            return next()
-        }
+//         if (!authHeader || !authHeader.startsWith('Bearer ')) {
+//             return next()
+//         }
 
-        const token = authHeader.substring(7)
+//         const token = authHeader.substring(7)
 
-        if (!token) {
-            return next()
-        }
+//         if (!token) {
+//             return next()
+//         }
 
-        const decoded = jwt.verify(token, serverConfig.jwtSecret) as any
-        const user = await User.findById(decoded.userId)
+//         const decoded = jwt.verify(token, serverConfig.jwtSecret) as any
+//         const user = await User.findById(decoded.userId)
 
-        if (user && user.isActive) {
-            req.user = user as any
-        }
+//         if (user && user.isActive) {
+//             req.user = user as any
+//         }
 
-        next()
-    } catch (error) {
-        // Don't throw error for optional auth, just continue
-        next()
-    }
-}
+//         next()
+//     } catch (error) {
+//         // Don't throw error for optional auth, just continue
+//         next()
+//     }
+// }

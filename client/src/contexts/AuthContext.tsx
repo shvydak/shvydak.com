@@ -4,7 +4,7 @@ import axios from 'axios'
 // Types
 interface User {
     id: number
-    username: string
+    username?: string
     firstName: string
     lastName: string
     email: string
@@ -16,7 +16,7 @@ interface AuthContextType {
     loading: boolean
     login: (email: string, password: string) => Promise<boolean>
     register: (
-        username: string,
+        username: string | undefined,
         email: string,
         password: string,
         firstName: string,
@@ -133,7 +133,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({children}) => {
     }
 
     const register = async (
-        username: string,
+        username: string | undefined,
         email: string,
         password: string,
         firstName: string,

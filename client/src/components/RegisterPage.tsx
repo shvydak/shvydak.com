@@ -86,7 +86,7 @@ const RegisterPage: React.FC = () => {
                     <div className="form-group">
                         <label htmlFor="username">
                             <i className="fas fa-user"></i>
-                            Username
+                            Username (optional)
                         </label>
                         <input
                             type="text"
@@ -102,7 +102,7 @@ const RegisterPage: React.FC = () => {
                     <div className="form-group">
                         <label htmlFor="firstName">
                             <i className="fas fa-user"></i>
-                            First Name
+                            First Name *
                         </label>
                         <input
                             type="text"
@@ -118,7 +118,7 @@ const RegisterPage: React.FC = () => {
                     <div className="form-group">
                         <label htmlFor="lastName">
                             <i className="fas fa-user"></i>
-                            Last Name
+                            Last Name *
                         </label>
                         <input
                             type="text"
@@ -135,7 +135,7 @@ const RegisterPage: React.FC = () => {
                     <div className="form-group">
                         <label htmlFor="email">
                             <i className="fas fa-envelope"></i>
-                            Email
+                            Email *
                         </label>
                         <input
                             type="email"
@@ -152,7 +152,7 @@ const RegisterPage: React.FC = () => {
                     <div className="form-group">
                         <label htmlFor="password">
                             <i className="fas fa-lock"></i>
-                            Password
+                            Password *
                         </label>
                         <input
                             type="password"
@@ -169,7 +169,7 @@ const RegisterPage: React.FC = () => {
                     <div className="form-group">
                         <label htmlFor="confirmPassword">
                             <i className="fas fa-lock"></i>
-                            Confirm Password
+                            Confirm Password *
                         </label>
                         <input
                             type="password"

@@ -1,5 +1,5 @@
 import {IUser} from '@/types'
-import {IUserDocument, User} from '@/models/User'
+import {IUserDocument, User} from '@/models/users.model'
 
 export const createUser = async (userData: Partial<IUser>): Promise<IUserDocument> => {
     const user = await User.create(userData)

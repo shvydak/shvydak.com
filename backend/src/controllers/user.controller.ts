@@ -5,7 +5,7 @@ import {
     getUserByEmail,
     getUserById,
     updateUser,
-} from '@/services/userService'
+} from '@/services/users.service'
 import {IUser} from '@/types'
 import {generateToken} from '@/utils/jwt'
 import {Request, Response} from 'express'
@@ -39,7 +39,7 @@ export const loginUser = async (req: Request, res: Response) => {
             user = users.find((u) => u.email.split('@')[0] === username)
             // If found by username, we need to fetch the user with password included
             if (user) {
-                const User = (await import('@/models/User')).User
+                const User = (await import('@/models/users.model')).User
                 user = await User.findById(user.id).select('+password')
             }
         } else if (email) {

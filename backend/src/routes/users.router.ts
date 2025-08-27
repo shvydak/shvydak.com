@@ -5,7 +5,7 @@ import {
     updateUserHandler,
     deleteUserHandler,
     getUserByEmailHandler,
-} from '../controllers/userController'
+} from '../controllers/user.controller'
 import {authenticate} from '@/middleware/auth'
 
 const router = Router()

@@ -1,5 +1,5 @@
 import {Router, Response} from 'express'
-import {registerUser, loginUser} from '../controllers/userController'
+import {registerUser, loginUser} from '../controllers/user.controller'
 import {authenticate} from '@/middleware/auth'
 import {AuthenticatedRequest} from '@/types'
 import {createUserResponse} from '@/utils/typeHelpers'

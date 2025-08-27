@@ -1,5 +1,5 @@
 import {serverConfig} from '@/config'
-import {User} from '@/models/User'
+import {User} from '@/models/users.model'
 import {AppError, AuthenticatedRequest} from '@/types'
 import {NextFunction, Request, Response} from 'express'
 import jwt from 'jsonwebtoken'

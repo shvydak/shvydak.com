@@ -1,5 +1,5 @@
 import {Router} from 'express'
-import {getServerInfo} from '@/controllers/infoController'
+import {getServerInfo} from '@/controllers/info.controller'
 
 const router = Router()
 

@@ -12,10 +12,10 @@ import {redisConnection} from '@/utils/redis'
 // Import middleware
 import {errorHandler, notFoundHandler} from '@/middleware/errorHandler'
 
-import infoRoutes from '@/routes/info'
-import userRoutes from '@/routes/users'
-import authRoutes from '@/routes/auth'
-import dashboardRoutes from '@/routes/dashboard'
+import infoRoutes from '@/routes/info.router'
+import userRoutes from '@/routes/users.router'
+import authRoutes from '@/routes/auth.router'
+import dashboardRoutes from '@/routes/dashboard.router'
 
 /**
  * Express application class

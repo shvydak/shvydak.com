@@ -10,10 +10,10 @@ router.get('/', authenticate, (req: AuthenticatedRequest, res) => {
         {name: 'Immich Photos', status: 'online', url: 'http://photos.shvydak.com'},
         {name: 'Portainer', status: 'online', url: 'http://portainer.shvydak.com'},
         {name: 'n8n', status: 'online', url: 'http://n8n.shvydak.com'},
-        {name: 'Home Assistant', status: 'online', url: 'http://homeassistant.shvydak.com'},
+        {name: 'Home Assistant', status: 'offline', url: 'http://homeassistant.shvydak.com'},
         {name: 'Pi-hole', status: 'online', url: 'http://pihole.shvydak.com/admin'},
-        {name: 'Plex', status: 'offline', url: 'http://plex.shvydak.com'},
-        {name: 'Transmission', status: 'offline', url: 'http://torrents.shvydak.com'},
+        {name: 'Plex', status: 'online', url: 'http://plex.shvydak.com'},
+        {name: 'Transmission', status: 'online', url: 'http://torrents.shvydak.com'},
     ]
 
     res.json({

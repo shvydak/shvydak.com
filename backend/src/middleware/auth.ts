@@ -44,6 +44,7 @@ export const authenticate = async (
         }
 
         // Attach user to request object
+        // eslint-disable-next-line no-extra-semi
         ;(req as any).user = user as any
         next()
     } catch (error) {

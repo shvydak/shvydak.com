@@ -15,7 +15,7 @@ router.post('/logout', (_req, res) => {
 })
 
 // Protected auth routes
-router.get('/me', authenticate, (req: AuthenticatedRequest, res: Response) => {
+router.get('/getCurrentUser', authenticate, (req: AuthenticatedRequest, res: Response) => {
     // Return current user info with consistent response structure
     res.json(createUserResponse({user: req.user}, 'User info retrieved successfully'))
 })
